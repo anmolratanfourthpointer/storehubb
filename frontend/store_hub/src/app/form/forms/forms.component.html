@@ -1,0 +1,147 @@
+<div class="container">
+    <div *ngIf="currentStep === 1" class="form-step">
+      <h2>Step 1: User Information</h2>
+      <form [formGroup]="step1Form" (ngSubmit)="nextStep()">
+        <div class="form-group">
+          <label for="mobileNo">Mobile No*</label>
+          <input id="mobileNo" formControlName="mobileNo" type="number" class="form-control" />
+          <div *ngIf="step1Form.get('mobileNo')?.invalid && step1Form.get('mobileNo')?.touched" class="error">
+            Mobile Number is required and should be a number.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="userId">UserId*</label>
+          <input id="userId" formControlName="userId" type="text" class="form-control" />
+          <div *ngIf="step1Form.get('userId')?.invalid && step1Form.get('userId')?.touched" class="error">
+            User ID is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="emailId">Email ID*</label>
+          <input id="emailId" formControlName="emailId" type="email" class="form-control" />
+          <div *ngIf="step1Form.get('emailId')?.invalid && step1Form.get('emailId')?.touched" class="error">
+            Please enter a valid email.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="ipAddress">IP Address*</label>
+          <input id="ipAddress" formControlName="ipAddress" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="deviceOS">Device OS*</label>
+          <input id="deviceOS" formControlName="deviceOs" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="deviceModel">Device Model*</label>
+          <input id="deviceModel" formControlName="deviceModel" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="lastLoginTime">Last Login Time*</label>
+          <input id="lastLoginTime" formControlName="lastLoginTime" type="datetime-local" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="userAddress">User Address*</label>
+          <textarea id="userAddress" formControlName="userAddress" class="form-control"></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="orderId">Order ID*</label>
+          <input id="orderId" formControlName="orderId" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="extId">Ext ID*</label>
+          <input id="extId" formControlName="extId" type="number" class="form-control" />
+        </div>
+  
+        <button type="submit" [disabled]="step1Form.invalid" class="btn btn-primary">Next Step</button>
+      </form>
+    </div>
+  
+    <div *ngIf="currentStep === 2" class="form-step">
+      <h2>Step 2: Transaction Information</h2>
+      <form [formGroup]="step2Form" (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label for="receivedAmount">Received Amount*</label>
+          <input id="receivedAmount" formControlName="receivedAmount" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="recDate">Received Date*</label>
+          <input id="recDate" formControlName="recDate" type="datetime-local" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="mtId">MT ID*</label>
+          <input id="mtId" formControlName="mtId" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="bank">Bank*</label>
+          <input id="bank" formControlName="bank" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="bankAccNo">Bank Account No*</label>
+          <input id="bankAccNo" formControlName="bankAccNo" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="paidAmount">Paid Amount*</label>
+          <input id="paidAmount" formControlName="paidAmount" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="feeAmount">Fee Amount*</label>
+          <input id="feeAmount" formControlName="feeAmount" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="feePer">Fee Percentage*</label>
+          <input id="feePer" formControlName="feePer" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="feeFixed">Fee Fixed*</label>
+          <input id="feeFixed" formControlName="feeFixed" type="number" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="userWallet">User Wallet*</label>
+          <input id="userWallet" formControlName="userWallet" type="text" class="form-control" />
+        </div>
+  
+        <div class="form-group">
+          <label for="status">Status*</label>
+          <select id="status" formControlName="status" class="form-control">
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="failed">Failed</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="parseStatus">Parse Status*</label>
+          <input id="parseStatus" formControlName="parseStatus" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="transactionFile">Transaction File</label>
+            <input id="transactionFile" type="file" class="form-control" (change)="onFileChange($event)" />
+          </div>
+          
+  
+        <div class="form-buttons">
+          <button type="submit" [disabled]="step2Form.invalid" class="btn btn-primary">Submit</button>
+          <button type="button" (click)="prevStep()" class="btn btn-secondary">Back</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

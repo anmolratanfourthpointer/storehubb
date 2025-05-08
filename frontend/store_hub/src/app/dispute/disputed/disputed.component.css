@@ -1,0 +1,23 @@
+/* Remove vertical borders only from tbody cells */
+table tbody td {
+    border-left: none !important;
+    border-right: none !important;
+  }
+  
+/* Active Menu Item */
+.nav-link.active {
+    background-color: #cce5ff ;/* Light green background */
+    color: #155724; /* Dark green text */
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .dropdown-toggle::after {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  
+
+ 
