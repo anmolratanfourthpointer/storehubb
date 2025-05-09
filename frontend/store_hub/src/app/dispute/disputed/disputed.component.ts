@@ -131,9 +131,15 @@ export class DisputedComponent implements OnInit {
   removeDispute(item:any){
 
   }
-  viewDispute(item:any){
 
-  }
+
+  selectedDispute: any;
+
+viewDispute(item: any) {
+  this.selectedDispute = item;
+}
+
+  
   
   
   
