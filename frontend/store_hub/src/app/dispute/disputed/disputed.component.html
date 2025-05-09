@@ -219,7 +219,7 @@
                       <td>{{ item.receivedFrom }}</td>
                       <td>{{ item.utr }}</td>
                       <td>{{ item.vpa }}</td>
-                      <td>{{ item.datetime }}</td>
+                      <td>{{ item.datetime |  date:"MMM dd, yyyy 'at' hh:mm a"}}</td>
                       <td>{{ item.amount | currency:'INR'}}</td>
                       <td>{{ item.raised }}</td>
                       <td>
@@ -240,14 +240,7 @@
                   </tbody>
                 </table>
               </div>
-              
-          
-          
         </div>
-      
-      
-        
-  
       </div>
     </div>
   </div>
@@ -352,7 +345,7 @@
                   <strong>VPA:</strong> {{ selectedDispute?.vpa }}
                 </div>
                 <div class="col-md-4">
-                  <strong>Date/Time:</strong> {{ selectedDispute?.datetime }}
+                  <strong>Date/Time:</strong> {{ selectedDispute?.datetime  |  date:"MMM dd, yyyy 'at' hh:mm a"}}
                 </div>
                 <div class="col-md-4">
                   <strong>Amount:</strong> {{ selectedDispute?.amount | currency:'INR' }}
